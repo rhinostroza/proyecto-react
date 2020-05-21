@@ -10,7 +10,7 @@ export default class Home extends Component {
     return (
       <div className="Home">
         <div className="container">
-          <div className="row">
+          <div className="row Home__row">
             <div className="Home__col col-12 col-md-4">
               <img
                 src={platziconfLogoImage}

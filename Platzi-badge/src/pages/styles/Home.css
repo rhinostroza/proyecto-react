@@ -1,3 +1,4 @@
+
 .Home {
   width: 100%;
   min-height: calc(100vh - 60px);
@@ -15,6 +16,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url('../../images/stars.svg'), #1B1B25;
+  background-repeat: repeat;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.Home__row{
+  line-height:0;
+  background: #1B1B25;
+  margin: 0;
 }
 
 @media screen and (min-width: 768px) {
