@@ -1,0 +1,38 @@
+
+.section{
+    margin: 15px 0;
+}
+
+.container__userImage{
+    display: flex;
+    justify-content: center;
+}
+
+.container__userImage-logo{
+    border-radius: 50%;
+}
+
+.container__info{
+    padding-left: 0;
+}
+
+.container>.row{
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.10);
+}
+
+.container>.row>div{
+    margin: 15px 0;
+}
+
+.container__social{
+    -webkit-mask: url('../../images/twitter.svg') no-repeat;
+    background: rgba(29,161,242,1.00);
+    padding: 0px 11px;
+}
+p{
+    margin: 0;
+}
+.container__username{
+    color: rgba(29,161,242,1.00);
+}
