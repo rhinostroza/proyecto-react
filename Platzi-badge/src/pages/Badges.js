@@ -7,8 +7,13 @@ import './styles/Badges.css';
 import NavBar from '../components/Navbar';
 import BadgesList from '../components/BadgesList';
 import api from '../api';
+import PageLoading from '../components/PageLoading';
+import PageError from '../components/PageError';
+import MiniLoader from '../components/MiniLoader';
 
 class Badges extends React.Component {
+
+    
 
     constructor(props){
         //Indiica que el componente va a iniciar la carga
@@ -17,13 +22,16 @@ class Badges extends React.Component {
         this.state = {
             loading: true,
             error: null,
-            data: [],
+            data: undefined,
         };
     }
 
     componentDidMount(prevcProps, prevState){
         //Indica que el componente ya cargó
         this.fetchData();
+
+        // this.idInterval = setInterval(this.fetchData,5000)
+
     }
 
     fetchData = async () => {
@@ -47,17 +55,19 @@ class Badges extends React.Component {
     }
 
     componentDidUpdate(){
+    }
 
+    componentWillUnmount(){
+        clearInterval(this.idInterval);
     }
 
     render(){
-        
         //Indica que el componen va a cargar los siguiente
-        if(this.state.loading){
-            return 'loading...'
+        if(this.state.loading === true && !this.state.data){ // y cuando no hay datos
+            return <PageLoading />
         }
         if(this.state.error){
-            return `Error: ${this.state.error.message}`;
+            return <PageError error={this.state.error}/>
         }
         return(
             <React.Fragment>
@@ -78,10 +88,11 @@ class Badges extends React.Component {
                     <div className="Badges__list">
                         <div className="Badges__container">
                             <BadgesList badgesValues={this.state.data}/>
+
+                            {this.state.loading && <MiniLoader />}
                         </div>
                     </div>
                 </div>
-
             </React.Fragment>
         );
     }

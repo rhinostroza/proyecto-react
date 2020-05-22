@@ -24,14 +24,15 @@ async function callApi(endpoint, options = {}) {
 const api = {
   badges: {
     list() {
-    //   return callApi('/badges');
-        throw new Error('Error Feo');
+      return callApi('/badges');
+        // throw new Error('Server error');
     },
     create(badge) {
       return callApi(`/badges`, {
         method: 'POST',
         body: JSON.stringify(badge),
       });
+      // throw new Error('Es culpa del servidor');
     },
     read(badgeId) {
       return callApi(`/badges/${badgeId}`);
